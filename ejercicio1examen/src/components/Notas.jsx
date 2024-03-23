@@ -30,13 +30,12 @@ const Notas = () => {
       return;
     }
 
-    // Calcular la suma de las notas
+    // Suma
     const sumaNotas = parseFloat(primerParcial) + parseFloat(segundoParcial) + parseFloat(tercerParcial);
 
-    // Calcular el porcentaje de la suma de las notas
     const porcentaje = (sumaNotas / 100) * 100;
 
-    // Determinar el mensaje según el porcentaje
+    // Mensaje según el porcentaje
     let mensaje;
     if (porcentaje >= 90) {
       mensaje = 'Sobresaliente';
@@ -64,44 +63,48 @@ const Notas = () => {
   };
 
   return (
-    <div className="container mt-3">
+    <div className="container mt-5">
       <h2>Calculadora de Notas</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="primerParcial" className="form-label">Primer Parcial (30%)</label>
+          <label htmlFor="primerParcial" className="form-label fw-bold mt-3">Primer Parcial</label>
           <input
             type="number"
-            className="form-control"
+            className="form-control mt-3 shadow p-3"
             id="primerParcial"
+            placeholder="Ingrese la nota del primer parcial (máximo 30%)"
             value={primerParcial}
             onChange={(e) => setPrimerParcial(e.target.value)}
             required
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="segundoParcial" className="form-label">Segundo Parcial (30%)</label>
+          <label htmlFor="segundoParcial" className="form-label fw-bold mt-3">Segundo Parcial</label>
           <input
             type="number"
-            className="form-control"
+            className="form-control mt-3 shadow p-3"
             id="segundoParcial"
+            placeholder="Ingrese la nota del segundo parcial (máximo 30%)"
             value={segundoParcial}
             onChange={(e) => setSegundoParcial(e.target.value)}
             required
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="tercerParcial" className="form-label">Tercer Parcial (40%)</label>
+          <label htmlFor="tercerParcial" className="form-label fw-bold mt-3">Tercer Parcial</label>
           <input
             type="number"
-            className="form-control"
+            className="form-control mt-3 shadow p-3"
             id="tercerParcial"
+            placeholder="Ingrese la nota del tercer parcial (máximo 40%)"
             value={tercerParcial}
             onChange={(e) => setTercerParcial(e.target.value)}
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary">Calcular</button>
-        <button type="button" className="btn btn-secondary" onClick={handleClear}>Limpiar</button>
+        <button type="submit" className="btn btn-outline-success border-3 shadow-sm mt-4 fw-bold">Calcular Nota</button>
+        
+        <button type="button" className="btn btn-outline-warning border-3 shadow-sm mt-4 fw-bold" onClick={handleClear}>Limpiar campos</button>
       </form>
     </div>
   );
